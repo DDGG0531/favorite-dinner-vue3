@@ -1,27 +1,21 @@
 <script setup lang="ts">
 import { RouterLink, RouterView } from "vue-router";
-import HelloWorld from "@/components/HelloWorld.vue";
+import { BeakerIcon } from "@heroicons/vue/solid";
+import { ref } from "vue";
+
+const count = ref(0);
+
+const addCount = () => {
+  count.value++;
+};
 </script>
 
 <template>
-  <header>
-    <img
-      alt="Vue logo"
-      class="logo"
-      src="@/assets/logo.svg"
-      width="125"
-      height="125"
-    />
-
-    <div class="wrapper">
-      <HelloWorld msg="You did it!" />
-
-      <nav>
-        <RouterLink to="/">Home</RouterLink>
-        <RouterLink to="/about">About</RouterLink>
-      </nav>
-    </div>
-  </header>
+  <h1 class="text-3xl font-bold underline text-red-400">Hello world!</h1>
+  <BeakerIcon class="h-5 w-5 text-blue-500" @click="addCount" />
+  <div>
+    {{ count }}
+  </div>
 
   <RouterView />
 </template>
